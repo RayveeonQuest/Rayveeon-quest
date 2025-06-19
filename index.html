@@ -55,7 +55,7 @@
   <h1>Rayveeon’s Quest</h1>
   <p>🌟 Family Sign-Up Form – Help us bring your journey to life!</p>
 
-  <form action="https://formspree.io/f/movwlybg" method="POST">
+  <form id="signup-form">
     <h3>Parent 1 Info</h3>
     <label>First Name</label>
     <input type="text" name="parent1_first_name" required />
@@ -93,5 +93,26 @@
 
     <button type="submit">Submit</button>
   </form>
+
+  <script>
+    const form = document.getElementById('signup-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const data = new FormData(form);
+      fetch('https://formspree.io/f/movwlybg', {
+        method: 'POST',
+        body: data,
+        headers: {
+          Accept: 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          window.location.href = "thankyou.html";
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
