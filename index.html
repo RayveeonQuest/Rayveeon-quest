@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rayveeon’s Quest – Sign Up</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e1e3f, #2c2c5a);
+      color: #f9f9f9;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #ffe600;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: #ffe600;
+      color: #000;
+      padding: 0.75rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ffdb4d;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rayveeon’s Quest</h1>
+  <p>🌟 Family Sign-Up Form – Help us bring your journey to life!</p>
+
+  <form action="https://formspree.io/f/movwlybg" method="POST">
+    <h3>Parent 1 Info</h3>
+    <label>First Name</label>
+    <input type="text" name="parent1_first_name" required />
+    <label>Last Name</label>
+    <input type="text" name="parent1_last_name" required />
+    <label>Birthday</label>
+    <input type="date" name="parent1_birthday" required />
+    <label>Email</label>
+    <input type="email" name="parent1_email" required />
+    <label>Phone (optional)</label>
+    <input type="tel" name="parent1_phone" />
+
+    <h3>Parent 2 Info (Optional)</h3>
+    <label>First Name</label>
+    <input type="text" name="parent2_first_name" />
+    <label>Last Name</label>
+    <input type="text" name="parent2_last_name" />
+    <label>Birthday</label>
+    <input type="date" name="parent2_birthday" />
+    <label>Email</label>
+    <input type="email" name="parent2_email" />
+
+    <h3>Children</h3>
+    <label>How many children?</label>
+    <select name="number_of_children" required>
+      <option value="">Select</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+
+    <label>What are you looking to get out of the app the most?</label>
+    <textarea name="goals" rows="4" placeholder="Tell us what you're hoping to accomplish..." required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
