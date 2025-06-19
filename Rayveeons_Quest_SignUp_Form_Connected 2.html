@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rayveeon's Quest - Sign Up</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e1b2e, #2c2741);
+      color: #f9f9f9;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #ffe066;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 2rem;
+      background-color: #ffe066;
+      color: #1e1b2e;
+      border: none;
+      padding: 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 6px;
+      width: 100%;
+    }
+    .child-fields {
+      border: 1px solid #555;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      background-color: #312c45;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rayveeon’s Quest: Family Sign-Up</h1>
+  <form action="https://formspree.io/f/movwlybg" method="POST">
+
+    <label>Parent 1 First Name</label>
+    <input type="text" name="parent1_firstname" required />
+
+    <label>Parent 1 Last Name</label>
+    <input type="text" name="parent1_lastname" required />
+
+    <label>Parent 1 Birthday</label>
+    <input type="date" name="parent1_birthday" required />
+
+    <label>Parent 1 Email</label>
+    <input type="email" name="parent1_email" required />
+
+    <label>Parent Phone (optional)</label>
+    <input type="tel" name="parent1_phone" />
+
+    <label>Parent 2 First Name (optional)</label>
+    <input type="text" name="parent2_firstname" />
+
+    <label>Parent 2 Last Name (optional)</label>
+    <input type="text" name="parent2_lastname" />
+
+    <label>Parent 2 Birthday (optional)</label>
+    <input type="date" name="parent2_birthday" />
+
+    <label>Parent 2 Email (optional)</label>
+    <input type="email" name="parent2_email" />
+
+    <label>How many children?</label>
+    <select id="child-count" name="child_count" onchange="generateChildFields(this.value)">
+      <option value="">Select</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+
+    <div id="children-container"></div>
+
+    <label>What are you looking to get out of the app the most?</label>
+    <textarea name="goal" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function generateChildFields(count) {
+      const container = document.getElementById('children-container');
+      container.innerHTML = '';
+      for (let i = 1; i <= count; i++) {
+        container.innerHTML += `
+          <div class="child-fields">
+            <h3>Child ${i}</h3>
+            <label>First Name</label>
+            <input type="text" name="child${i}_firstname" required />
+
+            <label>Last Name</label>
+            <input type="text" name="child${i}_lastname" required />
+
+            <label>Birthday</label>
+            <input type="date" name="child${i}_birthday" required />
+
+            <label>How would you best describe your child?</label>
+            <textarea name="child${i}_description" rows="3" required></textarea>
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
